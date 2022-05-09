@@ -1,0 +1,202 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct commandLine
+{
+    char* cmd;
+    char* args[50];
+    int numArg;    //argument count
+    char* file;
+    int input;
+    int output;
+    int end;    // & at the end
+    int parallel;
+    struct cmdLine* a;
+};
+
+void parse();
+void exec();
+void cd();
+void dir();
+
+
+int main()
+{
+    struct commandLine cmdLine;
+    char PWD = getcwd();
+
+   if (input searchfile exist)
+   { 
+      file = fopen("*.txt", "r");
+
+      for()
+      {
+            parse(line, &cmdLine);
+            exec(cmdLine);
+      }
+   }
+   else
+   {
+       char* line = read input from user;
+
+       // to parse the line
+       cmdLine = parse(line, &cmdLine);
+
+       if(cmdLine.cmd == "cd")
+       {
+           cd(cmdLine, getcwd());
+       }
+       else if(cmdLine.cmd == "dir")
+       {
+           dir(cmdLine);
+       }
+       else if(cmdLine.cmd == "environ")
+       {
+           //give out (user + path + shell + os + host + dir eniron);
+       }
+       else if(cmdLine.cmd == "echo")
+       {
+           printf(the argument);
+       }
+       else if(cmdLine.cmd == "help")
+       {
+           printf();
+       }
+       else if(cmdLine.cmd == "pause")
+       {
+           pause(until next action)
+       }
+       else if(cmdLine.cmd == "clr")
+       {
+           clear();
+       }
+       else if(cmdLine.cmd == "quit")
+       {
+           return 1;
+       }
+       else
+       {
+           exec();
+       }
+    }
+}
+
+void parse(char* line, struct cmdLine)
+{
+    char* strtoken = NULL;
+    char* ptr;
+    //strtoken = ;
+    if(| exist)
+    {
+        char* first = strtoken(line, "|");
+        char* secpnd = strtoken(NULL, "|");
+        parse(second, cmdLine.a);
+    }
+
+    if(& is at end)
+    {
+        cmdLine.end == 1;
+        line[line.length - 1] = '\0';
+        parse(line, cmdLine);
+    }
+
+    if(& is somewhere in the middle)
+    {
+        for(each)
+        {
+            strtoken(line, "&");
+        }
+        strtoken("");
+        add the string to cmdLine.arg;
+    }
+}
+
+void exec(struct cmdLine)
+{
+    if(pip)
+    {
+        create pipe;
+        create fork;
+        create child in pipe;
+        print(the result from parent);
+    }
+
+    if(end)
+    {
+        create fork;
+        child performs the command
+    }
+
+    if(cmdLine.input)
+    {
+        int file = fopen(cmdLine.file, "r");
+
+        close file;
+    }
+
+    if(cmdLine.output)
+    {
+        int file = fopen(cmdLine.file, "w");
+
+        close fd;
+    }
+    
+    else
+    {
+        fork();
+        exec();
+    }
+}
+
+void cd(cmdLine, PWD)
+{
+    if(cmdLine.numArg == 0)
+    {
+        printf(PWD);
+    }
+
+    path = (PWD + "/" + cmdLine.arg);
+
+    if(path exists)
+    {
+        chdir(path);
+    }
+}
+
+void dir(cmdLine)
+{
+    if(cmdLine.numArg <= 1)
+    {
+        path = getcwd();
+    }
+    else if(cmdLine.numArg > 1)
+    {
+        printf("error!");
+    }
+    else if(cmdLine.numArg == 1)
+    {
+        if(path is relative)
+        {
+            path = (path + "/" + cmdLine.arg[0]);
+        }
+    }
+    else
+    {
+        path = path;
+    }
+
+    if(path exists)
+    {
+        dir = open the dir(path);
+
+        read = read the dir(dir);
+
+        for(each read)
+        {
+            print; 
+        }
+
+        close the dir(dir);
+    }
+}
